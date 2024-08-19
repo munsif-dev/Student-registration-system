@@ -1,0 +1,179 @@
+﻿@page "/"
+@using PointofSaleSystem.Models;
+@using PointofSaleSystem.Services;
+@using System.ComponentModel.DataAnnotations
+@inject NavigationManager Navigation
+
+
+<div class="login-container">
+    <div class="login-form-container">
+        <h1 class="app-title">POINT OF SALE SYSTEM</h1>
+        <h3 class="login-heading">Login</h3>
+        <form class="login-form">
+            <EditForm Model="@loginModel" OnValidSubmit="OnLogin">
+                <DataAnnotationsValidator />
+
+                <div class="form-group">
+                    <label class="form-label" for="Username">Username:</label>
+                    <InputText id="Username" @bind-Value="loginModel.Username" class="form-control" />
+                    <ValidationMessage For="@(() => loginModel.Username)" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="Password">Password:</label>
+                    <InputText id="Password" @bind-Value="loginModel.Password" class="form-control" type="password" />
+                    <ValidationMessage For="@(() => loginModel.Password)" />
+                </div>
+
+                <div class="login-button-container">
+                    <button type="submit" class="btn btn-primary login-button">Login</button>
+                </div>
+            </EditForm>
+            <div>
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <p class="error-message">@errorMessage</p>
+                }
+            </div>
+            <div class="register-link">
+                <p>If you don't have an account? <a href="/register">Create one</a>.</p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    body {
+        background: radial-gradient(circle, black, #FF0000);
+        margin: 0;
+        font-family: 'Segoe UI Bold', sans-serif;
+    }
+
+    .login-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-image: url('your-background-image.jpg'); /* Add the path to your background image */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .login-form-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .app-title {
+        color: #FF0000;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+    .login-heading {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+
+    .form-label {
+        color: #333;
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+    }
+
+    .login-button-container {
+        text-align: center;
+    }
+
+    .login-button {
+        background-color: #FF0000;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .error-message {
+        color: red;
+        margin-top: 10px;
+    }
+
+    .register-link {
+        margin-top: 20px;
+        color: #333;
+        font-size: 14px;
+    }
+
+        .register-link a {
+            color: #FF0000;
+            font-weight: bold;
+            text-decoration: none;
+        }
+</style>
+
+
+@code {
+    private LoginModel loginModel = new LoginModel();
+    private DatabaseHelper databaseHelper;
+    private string? errorMessage;
+
+    private class LoginModel
+    {
+        [Required(ErrorMessage = "Username is required.")]
+        public string? Username { get; set; }
+
+        [Required(ErrorMessage = "Password is required.")]
+        public string? Password { get; set; }
+    }
+
+    private void OnLogin()
+    {
+        try
+        {
+            // Assuming the database path is set appropriately
+            databaseHelper = new DatabaseHelper();
+            var userValidated = databaseHelper.ValidateUser(loginModel.Username, loginModel.Password);
+
+            if (userValidated)
+            {
+                // Successful login
+                // Navigate to the next page or perform any other action
+                Navigation.NavigateTo("/Home");
+                Console.WriteLine("Login successful");
+            }
+            else
+            {
+                // Failed login
+                // Display an error message or take appropriate action
+                errorMessage = "Invalid username or password. Please try again.";
+                Console.WriteLine("Login failed");
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "An error occurred during login. Please try again.";
+            Console.WriteLine($"Error during login: {ex.Message}");
+        }
+        finally
+        {
+            // Dispose of the database helper to release resources
+            databaseHelper?.Dispose();
+        }
+    }
+
+}

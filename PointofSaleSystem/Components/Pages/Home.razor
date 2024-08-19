@@ -1,0 +1,94 @@
+﻿@page "/Home"
+@inject NavigationManager Navigation
+
+<style>
+    body {
+        background: radial-gradient(circle, black, #FF0000); /* Radial gradient color */
+        color: #ffffff; /* Text color */
+        margin: 0;
+        font-family: 'Segoe UI Bold', sans-serif;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .menu-container {
+        background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for the container */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Box shadow for the container */
+        text-align: center;
+    }
+
+    .nav-menu {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center; /* Center-align items horizontally */
+        margin-bottom: 20px; /* Add margin for better spacing */
+    }
+
+        .nav-menu li {
+            margin: 0 10px; /* Adjust the spacing between menu items */
+        }
+
+    h3 {
+        font-size: 2.5em; /* Larger font size for the title */
+        color: #000000; /* Black color for the title */
+        font-weight: bold; /* Bold font style */
+        font-family: 'Arial', sans-serif; /* Change the font family */
+        position: relative;
+        display: inline-block;
+        margin-bottom: 20px; /* Add margin for better spacing */
+    }
+
+        h3::after {
+            content: '';
+            display: block;
+            width: 100%; /* Adjust the width of the underline */
+            height: 2px; /* Height of the underline */
+            background-color: #808080; /* Color of the underline */
+            position: absolute;
+            bottom: 0;
+            left: 0%; /* Center the underline horizontally */
+        }
+
+    .btn-primary {
+        background-color: #008000; /* Dark Green for Product List button */
+    }
+
+    .btn-info {
+        background-color: #006400; /* Green for Add Product button */
+    }
+
+    .btn-danger {
+        background-color: #000000; /* Black for Logout button */
+    }
+
+</style>
+
+<div class="container">
+    <div class="menu-container">
+        <h3 class="mb-4">Home</h3>
+
+        <ul class="nav-menu">
+            <li><NavLink class="btn btn-primary" href="/add_update_product">Add Product</NavLink></li>
+            <li><NavLink class="btn btn-primary" href="/productList">Product Details</NavLink></li>
+        </ul>
+
+        <button @onclick="Logout" class="btn btn-danger mt-3">Logout</button>
+    </div>
+</div>
+
+@code {
+    private void Logout()
+    {
+        // Handle the logout logic here
+        // Redirect to the login page or perform any necessary actions
+        Navigation.NavigateTo("/");
+    }
+}

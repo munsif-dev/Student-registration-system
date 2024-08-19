@@ -1,0 +1,57 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\#Semester\\3rd Semester\\Programming project\\PointofSaleSystem\\PointofSaleSystem\\PointofSaleSystem\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\PointofSaleSystem.styles.css",
+      "PackagePath": "staticwebassets\\PointofSaleSystem.styles.css"
+    },
+    {
+      "Id": "E:\\#Semester\\3rd Semester\\Programming project\\PointofSaleSystem\\PointofSaleSystem\\PointofSaleSystem\\wwwroot\\Images\\Home_image.jpg",
+      "PackagePath": "staticwebassets\\Images\\Home_image.jpg"
+    },
+    {
+      "Id": "E:\\#Semester\\3rd Semester\\Programming project\\PointofSaleSystem\\PointofSaleSystem\\PointofSaleSystem\\wwwroot\\Images\\creat_account.png",
+      "PackagePath": "staticwebassets\\Images\\creat_account.png"
+    },
+    {
+      "Id": "E:\\#Semester\\3rd Semester\\Programming project\\PointofSaleSystem\\PointofSaleSystem\\PointofSaleSystem\\wwwroot\\Images\\logo.png",
+      "PackagePath": "staticwebassets\\Images\\logo.png"
+    },
+    {
+      "Id": "E:\\#Semester\\3rd Semester\\Programming project\\PointofSaleSystem\\PointofSaleSystem\\PointofSaleSystem\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "E:\\#Semester\\3rd Semester\\Programming project\\PointofSaleSystem\\PointofSaleSystem\\PointofSaleSystem\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\#Semester\\3rd Semester\\Programming project\\PointofSaleSystem\\PointofSaleSystem\\PointofSaleSystem\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\#Semester\\3rd Semester\\Programming project\\PointofSaleSystem\\PointofSaleSystem\\PointofSaleSystem\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "E:\\#Semester\\3rd Semester\\Programming project\\PointofSaleSystem\\PointofSaleSystem\\PointofSaleSystem\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.PointofSaleSystem.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.build.PointofSaleSystem.props",
+      "PackagePath": "build\\PointofSaleSystem.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildMultiTargeting.PointofSaleSystem.props",
+      "PackagePath": "buildMultiTargeting\\PointofSaleSystem.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildTransitive.PointofSaleSystem.props",
+      "PackagePath": "buildTransitive\\PointofSaleSystem.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
